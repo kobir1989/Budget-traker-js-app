@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/50ba960c66.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: '480px',
+            md: '768px',
+            lg: '976px',
+            xl: '1280px',
+            '2xl': '1440px',
+          },
+          colors: {
+            body: '#EEEEEE',
+            white: '#FFFFFF',
+            green: '#1C6758',
+            red: '#F96666',
+            gray: '##5F6F94',
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Budget Keeper</title>
+  </head>
+  <body class="bg-[#EEEEEE]">
+    <div class="lg:w-6/12 w-11/12 mx-auto mt-[5rem]">
+      <h1 class="text-[1.5rem] text-[#5F6F94]">BUDGET APP</h1>
+      <div class="flex lg:flex-row flex-col justify-between mt-[2rem]">
+        <div class="flex flex-col gap-8 lg:w-4/12">
+          <div class="border-[1px] border-green h-[12rem]">
+            <form
+              id="formBudget"
+              action=""
+              class="flex flex-col items-start gap-6 p-4"
+            >
+              <label id="labelBudget" for="budget" class="text-[.9rem]"
+                >Add Your Monthly Budget</label
+              >
+              <input
+                type="number"
+                name="budget"
+                class="w-full h-[2.5rem] outline-0 px-4 bg-[#F9F9F9] focus:border focus:border-green"
+                placeholder="Amount"
+                value=""
+                id="budgetValue"
+              />
+              <button
+                id="btnBudged"
+                class="w-8/12 h-[2.5rem] border-[1px] bg-[#CEE5D0] border-green hover:bg-green hover:text-body"
+              >
+                Add Budget
+              </button>
+            </form>
+          </div>
+          <div class="border-[1px] border-red h-[16rem]">
+            <form
+              id="formExp"
+              action=""
+              class="flex flex-col items-start gap-6 p-4"
+            >
+              <label id="labelExp" for="expense" class="text-[.9rem]"
+                >Add Your Daily Expenses</label
+              >
+              <input
+                type="text"
+                name="expense"
+                class="w-full h-[2.5rem] outline-0 px-4 bg-[#F9F9F9] focus:border focus:border-red"
+                placeholder="Title"
+                id="expTitle"
+              />
+              <input
+                type="number"
+                name="expense"
+                class="w-full h-[2.5rem] outline-0 px-4 bg-[#F9F9F9] focus:border focus:border-red"
+                placeholder="Amount"
+                id="expAmount"
+              />
+              <button
+                id="btnExp"
+                class="w-8/12 h-[2.5rem] border-[1px] border-red bg-[#EAAC9D] hover:bg-red hover:text-body"
+              >
+                Add Expense
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 mt-12 lg:mt-0 lg:w-7/12">
+          <div
+            class="flex justify-between text-[1.2rem] font-bold items-center"
+          >
+            <div class="flex flex-col items-center justify-center">
+              <h2>BUDGET</h2>
+              <span class="lg:text-[4rem] text-[2rem] text-[#607EAA]">
+                <i class="fa-solid fa-money-bill-1"></i
+              ></span>
+              <h2
+                id="budgetTotal"
+                class="lg:text-[1.5rem] text-[1rem] text-green"
+              >
+                $00.00
+              </h2>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <h2>EXPENSE</h2>
+              <span class="lg:text-[4rem] text-[2rem] text-[#607EAA]">
+                <i class="fa-regular fa-credit-card"></i
+              ></span>
+              <h2 id="expTotal" class="lg:text-[1.5rem] text-[1rem] text-red">
+                $00.00
+              </h2>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+              <h2>BALANCE</h2>
+              <span class="lg:text-[4rem] text-[2rem] text-[#607EAA]">
+                <i class="fa-solid fa-sack-dollar"></i
+              ></span>
+              <h2
+                id="balanceTotal"
+                class="lg:text-[1.5rem] text-[1rem] text-green"
+              >
+                $00.00
+              </h2>
+            </div>
+          </div>
+          <div class="mt-6">
+            <!-- <div
+              class="flex gap-[4rem] items-center text-[1.2rem] border-b-[1px] border-white pb-2"
+            >
+              <h2>Expense Title</h2>
+              <h2>Expense Amount</h2>
+            </div> -->
+            <div id="expList" class="my-10">
+              <!-- <div
+                class="border-l-[4px] border-red flex items-center justify-between bg-[#F9F9F9] h-[4rem] p-4"
+              >
+                <h2 class="text-[1.2rem] text-medium text-red">buy milk</h2>
+                <h2 class="text-[1.2rem] text-medium text-red">$10.00</h2>
+                <div class="flex gap-6">
+                  <button class="text-[#005A8D]">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                  <button class="text-red">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="absolute bottom-0">
+      <p class="text-[.8rem]">&copy;2022 | Kabir Hossain</p>
+    </div> -->
+    <script src="./script.js"></script>
+  </body>
+</html>
